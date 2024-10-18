@@ -218,7 +218,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-10-18 17:17:00 / 修改时间：17:18:02" itemprop="dateCreated datePublished" datetime="2024-10-18T17:17:00+08:00">2024-10-18</time>
+      <time title="创建时间：2024-10-18 17:17:00 / 修改时间：17:26:31" itemprop="dateCreated datePublished" datetime="2024-10-18T17:17:00+08:00">2024-10-18</time>
     </span>
 
   
@@ -246,116 +246,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Git教程"><a href="#Git教程" class="headerlink" title="Git教程"></a>Git教程</h1><h2 id="1-使用方式"><a href="#1-使用方式" class="headerlink" title="1.使用方式"></a>1.使用方式</h2><p>命令行</p>
-<p>图形化界面（GUI）</p>
-<p>IDE插件&#x2F;拓展</p>
-<h2 id="2-初始化配置"><a href="#2-初始化配置" class="headerlink" title="2.初始化配置"></a>2.初始化配置</h2><p>配置名称：git config –global user.name “Yufei Tan”</p>
-<p>省略（local）：本地配置，只对本地仓库有效</p>
-<p>global：全局配置，对所有仓库有效</p>
-<p>system：系统配置，对所有用户生效</p>
-<p>配置邮箱：git config –global user.email <a href="mailto:&#51;&#x35;&#49;&#x38;&#x38;&#53;&#49;&#x39;&#57;&#48;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#109;">&#51;&#x35;&#49;&#x38;&#x38;&#53;&#49;&#x39;&#57;&#48;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#109;</a></p>
-<p>查看配置的信息：git config –global –list</p>
-<h2 id="3-创建仓库"><a href="#3-创建仓库" class="headerlink" title="3.创建仓库"></a>3.创建仓库</h2><p>mkdir learn-git 创建目录</p>
-<p>git init 本地创建</p>
-<p>git clone 远程克隆</p>
-<h2 id="4-工作区域和文件状态"><a href="#4-工作区域和文件状态" class="headerlink" title="4.工作区域和文件状态"></a>4.工作区域和文件状态</h2><p>本地数据管理：</p>
-<p>工作区域（Working Directory）：.git所在目录</p>
-<p>暂存区（Staging Area&#x2F;Index）：保存即将提交到git仓库的修改内容</p>
-<p>本地仓库(Local Repository)：包含完整的项目历史和元数据，Git储存代码和版本信息的主要位置</p>
-<p><img data-src="C:\Users\tanyufei\AppData\Roaming\Typora\typora-user-images\image-20240420164940209.png" alt="image-20240420164940209"></p>
-<p>Git文件状态：</p>
-<p>未跟踪：新创建的，未被git管理的文件</p>
-<p>未修改、已修改、已暂存</p>
-<p><img data-src="C:\Users\tanyufei\AppData\Roaming\Typora\typora-user-images\image-20240420165006906.png" alt="image-20240420165006906"></p>
-<h2 id="5-添加和提交文件"><a href="#5-添加和提交文件" class="headerlink" title="5.添加和提交文件"></a>5.添加和提交文件</h2><p>git status 查看仓库状态 加-s查看简略模式，??表示暂存区、工作区的状态，M表示被修改过</p>
-<p>git add file 提交文件到暂存区</p>
-<p>（*.txt代表所有txt后缀的文件，.代表当前文件夹所有文件</p>
-<p>git rm –cached file 取回文件</p>
-<p>git commit -m”添加提交信息” 不指定-m的话会进入交互式界面，默认使用vim编辑提交信息</p>
-<p>git commit -a -m（或-am）”添加提交信息”暂存提交一键进行</p>
-<p>（按i进入编辑模式，esc退出，:wq保存退出）</p>
-<p>git log查看提交记录（git log –oneline查看简洁的提交记录）</p>
-<p>git ls-files查看暂存区</p>
-<h2 id="6-回退版本"><a href="#6-回退版本" class="headerlink" title="6.回退版本"></a>6.回退版本</h2><p>git reset –soft +回退的版本ID&#x2F;+HEAD^（回退到上一个版本）保留工作区、暂存区</p>
-<p>HEAD指向分支的最新节点</p>
-<p>git reset –hard 丢弃工作区、暂存区 +提交时间ID可以回复仓库状态</p>
-<p>git reset –mixed(默认参数) 只保留工作区、丢弃暂存区</p>
-<p>git reset –keep 保留工作区最新内容、丢弃暂存区</p>
-<p>cp -rf repo repo1 复制目录</p>
-<p>ctrl+n快速打开另一个终端</p>
-<p>git reflog查看操作历史</p>
-<p>扎到误操作之前的版本号，再使用git reset  –hard+版本号回退</p>
-<h2 id="7-查看差异"><a href="#7-查看差异" class="headerlink" title="7.查看差异"></a>7.查看差异</h2><p>git diff查看不同区&#x2F;文件不同版本&#x2F;文件在两个分支的差异</p>
-<p>默认比较工作区和暂存区的内容</p>
-<p>git diff HEAD比较工作区和版本库的差异</p>
-<p>git diff –cached 比较暂存区和版本库的差异</p>
-<p>git diff +两个版本的提交ID&#x2F;ID和HEAD&#x2F;HEAD~或HEAD^ (上一个版本) HEAD 比较版本的内容差异</p>
-<p>HEAD~2表示前两个版本，若再+文件名，则只会查看特定文件的差异内容</p>
-<p>vi指令进入vim编辑器</p>
-<p><img data-src="C:\Users\tanyufei\AppData\Roaming\Typora\typora-user-images\image-20240421135824359.png" alt="image-20240421135824359"></p>
-<p><img data-src="C:\Users\tanyufei\AppData\Roaming\Typora\typora-user-images\image-20240422111319927.png" alt="image-20240422111319927"></p>
-<h2 id="8-删除文件"><a href="#8-删除文件" class="headerlink" title="8.删除文件"></a>8.删除文件</h2><p>ls -ltr 按时间顺序显示详细信息</p>
-<p>直接删除 rm 文件名，只会删除本地库中的文件，不会删除暂存区中的，在用一次git add删除暂存库中的文件</p>
-<p>git rm 文件名可以两个区同时删除，但还要commit到版本库中</p>
-<p><img data-src="C:\Users\tanyufei\AppData\Roaming\Typora\typora-user-images\image-20240421140433862.png" alt="image-20240421140433862"></p>
-<h2 id="9-忽略文件"><a href="#9-忽略文件" class="headerlink" title="9.忽略文件"></a>9.忽略文件</h2><p>gitignore</p>
-<p><img data-src="C:\Users\tanyufei\AppData\Roaming\Typora\typora-user-images\image-20240421140707839.png" alt="image-20240421140707839"></p>
-<p>把文件添加到.gitignore文件中，该文件不能是已经被添加到库中的文件</p>
-<p>git默认不把空的文件夹纳入版本管理</p>
-<p>忽略文件夹的时候文件夹以斜线结尾</p>
-<p>.gitignore文件的匹配规则：从上到下逐行匹配，每一行表示一个忽略模式</p>
-<p>空行或以#开头的行会被忽略，一般空行用于可读性的分割，#用于注释</p>
-<p>使用标准的Glob模式匹配，例如：</p>
-<p>*通配任意字符，?匹配单个字符，[]表示匹配表中的单字符，如[abc]表示a&#x2F;b&#x2F;c</p>
-<p>**匹配任意的中间目录，[a-z]表示任意一位小写字母，!表示取反</p>
-<p><img data-src="C:\Users\tanyufei\AppData\Roaming\Typora\typora-user-images\image-20240421151400296.png" alt="image-20240421151400296"></p>
-<h2 id="10-SSH配置和克隆仓库"><a href="#10-SSH配置和克隆仓库" class="headerlink" title="10.SSH配置和克隆仓库"></a>10.SSH配置和克隆仓库</h2><p>HTTPS需要验证账户密码，SSH不需要，但需要添加公钥配置</p>
-<p>cd 回到根目录</p>
-<p>cd .ssh</p>
-<p>ssh-keygen -t rsa -b 4096如果已设置过就要新建一个文件，并且配置github，没有就一直回车</p>
-<p>进入公钥文件复制公钥到GitHub上</p>
-<p>id_rsa是私钥不能给，有.pub 是公钥上传到GitHub</p>
-<p>git clone +SSH地址</p>
-<p><img data-src="C:\Users\tanyufei\AppData\Roaming\Typora\typora-user-images\image-20240421165554290.png" alt="image-20240421165554290"></p>
-<p>git push把本地修改推送给远程仓库，容易报错，改为git push -u origin main（这边注意新分支的名称）</p>
-<p>git pull把远程仓库的修改拉取到本地仓库</p>
-<h2 id="11-关联本地仓库和远程仓库"><a href="#11-关联本地仓库和远程仓库" class="headerlink" title="11.关联本地仓库和远程仓库"></a>11.关联本地仓库和远程仓库</h2><p>git remote add</p>
-<p>第一种如上图中的提示：git push –set-upstream origin master。其中的origin是你在clone远程代码时，git为你创建的指向这个远程代码库的标签，它指向repository。为了能清楚了解你要指向的repository，可以用命令git remote -v进行查看。master是你远程的branch，可以用git branch -a查看所有分支，远程分支是红色的部分。然后确定好这两个值后，将值换掉即可。<br>另一种方法是：git push -u origin master。同样根据自己的需要，替换origin和master。<br>两个命令的区别是第一条命令是要保证你的远程分支存在，如果不存在，也就无法进行关联。而第二条指令即使远程没有你要关联的分支，它也会自动创建一个出来，以实现关联。</p>
-<p>git remote -v 查看远程仓库地址</p>
-<p>git branch -m master main 指定新分支名称为main</p>
-<p>导致错误的原因就是没有理解 origin 和 master</p>
-<p>clone 操作之后，Git 会自动将此远程仓库命名为 origin ，建立指针指向项目的指针master</p>
-<p>origin只相当于一个指针指向你 github 远端的地址（仓库名）&#x2F;（分支名）origin&#x2F;master 代表远程分支</p>
-<p>git pull 远程仓库 远程分支:本地分支</p>
-<p>注意：拉取的时候会自动执行合并操作，如果不冲突就成功，冲突就要手动解决</p>
-<p>还可以用 git fetch 区别在于只会获取远程仓库的修改，不会合并</p>
-<p><img data-src="C:\Users\tanyufei\AppData\Roaming\Typora\typora-user-images\image-20240421175216108.png" alt="image-20240421175216108"></p>
-<h2 id="12-giteee和gitlab"><a href="#12-giteee和gitlab" class="headerlink" title="12.giteee和gitlab"></a>12.giteee和gitlab</h2><p>Gitee：国内</p>
-<p>GitLab：特色化部署</p>
-<h2 id="13-vscode中使用git"><a href="#13-vscode中使用git" class="headerlink" title="13.vscode中使用git"></a>13.vscode中使用git</h2><p><img data-src="C:\Users\tanyufei\AppData\Roaming\Typora\typora-user-images\image-20240422112555400.png" alt="image-20240422112555400"></p>
-<h2 id="14-分支"><a href="#14-分支" class="headerlink" title="14.分支"></a>14.分支</h2><p>代码库中的不同版本</p>
-<p>独立开发，持续集成，提高协作效率</p>
-<p>git branch 查看当前所有分支</p>
-<p>git branch +名字 创建新分支</p>
-<p>git checkout +名字 切换到分支，但还可以恢复修改的文件名，但会有歧义</p>
-<p>git switch +名字 切换分支</p>
-<p>未合并之前旧分支不包含新分支</p>
-<p>切换到main分支使用git merge +名字 把分支合并到main分支</p>
-<p>git log –graph –oneline –decorate -all 查看分支图</p>
-<p>alias定义别名 alias graph&#x3D;”git log –graph –oneline –decorate -all”</p>
-<p>合并后分支还是在，手动删除使用git branch -d +名字 删除已合并的分支 +D强制删除</p>
-<p><img data-src="C:\Users\tanyufei\AppData\Roaming\Typora\typora-user-images\image-20240422130559359.png" alt="image-20240422130559359"></p>
-<p>冲突需要手动合并或者使用git merge –abort中断合并</p>
-<p>rebase变基，找到共同祖先再把之后新的变化转接到另一个分支上</p>
-<p>git checkout -b +文件名 +提交时间ID 回复到当前状态</p>
-<h2 id="15-分支管理和工作流模型"><a href="#15-分支管理和工作流模型" class="headerlink" title="15.分支管理和工作流模型"></a>15.分支管理和工作流模型</h2><p>可以通过git tag标记版本号</p>
-<p><img data-src="C:\Users\tanyufei\AppData\Roaming\Typora\typora-user-images\image-20240422145906973.png" alt="image-20240422145906973"></p>
-<p>gitflow模型</p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/10655a9e87c8dc93b70506d4dd3d856e.png#pic_center" alt="3-01"></p>
-<p>githubflow模型，PR（pull request）请求合并</p>
-<p><img data-src="https://img2020.cnblogs.com/blog/819128/202008/819128-20200822003538104-1510226595.png" alt="img"></p>
-<p><img data-src="C:\Users\tanyufei\AppData\Roaming\Typora\typora-user-images\image-20240422150613497.png" alt="image-20240422150613497"></p>
-
+          <p>Git的基础使用教程</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/10/18/Git%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
